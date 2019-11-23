@@ -23,6 +23,7 @@ Plug 'tpope/vim-sensible'
 Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
+Plug 'zchee/deoplete-clang'
 call plug#end()
 
 " Use :help <option> to see the docs
@@ -102,7 +103,9 @@ let g:airline_symbols.paste = 'ρ'
 " Deoplete (autocompletion)
 set pyxversion=3
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 1
+"let g:deoplete#disable_auto_complete = 1
+let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-6.0.so.1'
+let g:deoplete#sources#clang#clang_header='/usr/include/clang'
 set completeopt-=preview
 set completeopt+=noinsert,longest,menuone
 if has("patch-7.4.314")
@@ -164,4 +167,3 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 
 " Autoload changes in .vimrc
 autocmd BufWritePost .vimrc source $MYVIMRC
-
