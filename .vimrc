@@ -24,6 +24,7 @@ Plug 'mhinz/vim-signify'
 Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
 Plug 'zchee/deoplete-clang'
+Plug 'jansenm/vim-cmake' 
 call plug#end()
 
 " Use :help <option> to see the docs
@@ -39,10 +40,13 @@ set mouse=a
 set hidden
 set wildmode=list:longest
 set number
+set relativenumber
 set title
 set ruler
 set nospell
 
+" Set timeout for chaning insert mode and normal mode
+set timeoutlen=1000 ttimeoutlen=0
 " Customize view
 sy on
 set t_Co=256

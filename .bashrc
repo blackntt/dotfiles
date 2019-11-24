@@ -78,3 +78,5 @@ fi
 # Easily change to Go package source directories (e.g. gocd .../policy)
 function gocd() { cd `go list -f '{{.Dir}}' $1`; }
 
+bind 'TAB:menu-complete'
+
