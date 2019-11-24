@@ -12,10 +12,14 @@ sudo apt remove vim
 cd $HOME/apps
 ln -sf nvim.appimage nvim
 ln -sf nvim.appimage vim
-echo 'export PATH:=$HOME/apps:$PATH' >> $HOME/.bashrc
+echo 'export PATH=$HOME/apps:$PATH' >> $HOME/.bashrc
 
 #create file config for neovim
-mkdir -p $HOME/.config/nvim
+cd $HOME/.config
+ln -sf $HOME/dotfiles/.vim nvim
 cd $HOME/.config/nvim
 ln -sf $HOME/dotfiles/.vimrc init.vim
-ln -sf $HOME/dotfiles/.vim/colors colors
+
+#create symbolic link to tmux.conf
+cd $HOME
+ln -sf $HOME/dotfiles/.tmux.conf .tmux.conf
