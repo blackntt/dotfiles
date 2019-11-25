@@ -106,7 +106,6 @@ let g:airline_symbols.branch = '⎇ '
 let g:airline_symbols.paste = 'ρ'
 
 " Deoplete (autocompletion)
-set pyxversion=3
 let g:deoplete#enable_at_startup = 1
 "let g:deoplete#disable_auto_complete = 1
 let g:deoplete#sources#clang#libclang_path='/usr/lib/x86_64-linux-gnu/libclang-6.0.so.1'
