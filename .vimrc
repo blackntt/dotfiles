@@ -8,7 +8,6 @@ endif
 " call plug#begin('~/.vim/plugged')
 call plug#begin('~/.config/nvim/plugged')
 Plug 'jlanzarotta/bufexplorer'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'scrooloose/nerdtree'
@@ -25,6 +24,10 @@ Plug 'sukima/xmledit'
 Plug 'vim-airline/vim-airline'
 Plug 'zchee/deoplete-clang'
 Plug 'jansenm/vim-cmake' 
+Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " Use :help <option> to see the docs
@@ -130,9 +133,6 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
             \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
 imap <C-@> <C-Space>
 
-" CtrlP
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
 
 " Tmux integration
 if &term =~ '^screen'
@@ -170,3 +170,36 @@ autocmd Filetype yaml setlocal ts=2 sts=2 sw=2
 
 " Autoload changes in .vimrc
 autocmd BufWritePost .vimrc source $MYVIMRC
+" setting for copying to clipboard
+vmap <C-c> "+y     " Yank current selection into system clipboard
+nmap <C-c> "+Y     " Yank current line into system clipboard (if nothing is selected)
+nmap <C-v> "+p     " Paste from system clipboard
+
+
+" Map leader key
+let mapleader = "," " map leader key to ,
+let g:mapleader = ","
+ 
+" Fast saving
+nmap <leader>w :w!<cr>
+ 
+" Map Esc to jj
+:imap jj <Esc>
+ 
+" Hide highlight 
+map <silent> <leader><cr> :noh<cr>
+ 
+" Move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+map <C-h> <C-W>h
+
+
+"Mapping keys for fzf
+nnoremap <c-p> :Files<CR>
+nmap <c-f> :Ag<cr>
+
+"Mapping keys for commentary
+nmap <c-_> gcc
+vmap <c-_> gc
