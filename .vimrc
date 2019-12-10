@@ -18,6 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/syntastic'
 Plug 'miyakogi/conoline.vim'
+Plug 'fatih/vim-go'
 call plug#end()
 " Set options for vim
 set tabstop=4
@@ -43,6 +44,10 @@ nmap <F2> :NERDTreeToggle<CR>
 nmap <F3> :TagbarToggle<CR>
 imap jj <Esc>
 
+nnoremap <C-c> "+y
+vnoremap <C-c> "+y
+nnoremap <C-v> "+gP
+vnoremap <C-v> "+gP
 map <silent> <leader><cr> :noh<cr>
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -84,6 +89,8 @@ let g:ycm_path_to_python_interpreter = '' "default ''
 
 let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
 let g:ycm_server_log_level = 'info' "default info
+" let g:ycm_gocode_binary_path = '/home/blackntt/go/bin/gocode'
+" let g:ycm_godef_binary_path = '/home/blackntt/go/bin/godef'
 nnoremap <leader>gd :YcmCompleter GoTo<CR>
 " UltiSnips triggering
 let g:UltiSnipsExpandTrigger = '<C-j>'
@@ -113,14 +120,3 @@ endif
 " gitgutter
 set signcolumn=yes
 
-
-"sysnatics setting
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_cpp_checkers = ["clang_check"]
